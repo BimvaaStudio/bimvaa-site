@@ -1,0 +1,64 @@
+{
+  "items": [
+    {
+      "title": "Showreel 2026",
+      "category": "Reel",
+      "meta": "Film · 2.39:1 · 24fps",
+      "duration": "02:14",
+      "video": "https://d8j0ntlcm91z4.cloudfront.net/user_3EGOxTBmCmVIbqJo9YMQWU0HApF/hf_20260614_160317_26f11891-8aef-4984-96fe-afdceafaeca9.mp4",
+      "poster": "https://d8j0ntlcm91z4.cloudfront.net/user_3EGOxTBmCmVIbqJo9YMQWU0HApF/hf_20260614_160313_ba47e08c-088e-48e4-a53a-e3c04291b30d_min.webp",
+      "size": "c-12",
+      "grade": "g8"
+    },
+    {
+      "title": "Vows, last light",
+      "category": "Wedding",
+      "meta": "Film · Anamorphic · 24fps",
+      "duration": "02:41",
+      "video": "https://d8j0ntlcm91z4.cloudfront.net/user_3EGOxTBmCmVIbqJo9YMQWU0HApF/hf_20260614_160317_26f11891-8aef-4984-96fe-afdceafaeca9.mp4",
+      "poster": "https://d8j0ntlcm91z4.cloudfront.net/user_3EGOxTBmCmVIbqJo9YMQWU0HApF/hf_20260614_160314_d9473059-50e5-42bd-a4df-d392de659051_min.webp",
+      "size": "c-6-32",
+      "grade": "g1"
+    },
+    {
+      "title": "Brand film — sixty seconds",
+      "category": "Brand",
+      "meta": "Film · 2.39:1 · 24fps",
+      "duration": "01:00",
+      "video": "https://d8j0ntlcm91z4.cloudfront.net/user_3EGOxTBmCmVIbqJo9YMQWU0HApF/hf_20260614_160317_26f11891-8aef-4984-96fe-afdceafaeca9.mp4",
+      "poster": "https://d8j0ntlcm91z4.cloudfront.net/user_3EGOxTBmCmVIbqJo9YMQWU0HApF/hf_20260614_160306_874d3f5d-ad58-4a2a-92d3-c94e4215d432_min.webp",
+      "size": "c-6-32",
+      "grade": "g6"
+    },
+    {
+      "title": "Portrait, in motion",
+      "category": "Portrait",
+      "meta": "Film · 24fps",
+      "duration": "01:24",
+      "video": "https://d8j0ntlcm91z4.cloudfront.net/user_3EGOxTBmCmVIbqJo9YMQWU0HApF/hf_20260614_160317_26f11891-8aef-4984-96fe-afdceafaeca9.mp4",
+      "poster": "https://d8j0ntlcm91z4.cloudfront.net/user_3EGOxTBmCmVIbqJo9YMQWU0HApF/hf_20260614_160210_8c019845-fb84-4810-af31-41c92ada4ce6_min.webp",
+      "size": "c-4-45",
+      "grade": "g3"
+    },
+    {
+      "title": "Editorial cut",
+      "category": "Editorial",
+      "meta": "Film · 24fps",
+      "duration": "00:48",
+      "video": "https://d8j0ntlcm91z4.cloudfront.net/user_3EGOxTBmCmVIbqJo9YMQWU0HApF/hf_20260614_160317_26f11891-8aef-4984-96fe-afdceafaeca9.mp4",
+      "poster": "https://d8j0ntlcm91z4.cloudfront.net/user_3EGOxTBmCmVIbqJo9YMQWU0HApF/hf_20260614_160308_fcb4cbdd-174e-4e0c-8313-9b5e9ca3a6b5_min.webp",
+      "size": "c-4-45",
+      "grade": "g2"
+    },
+    {
+      "title": "Studio, in three takes",
+      "category": "Brand",
+      "meta": "Film · 24fps",
+      "duration": "01:12",
+      "video": "https://d8j0ntlcm91z4.cloudfront.net/user_3EGOxTBmCmVIbqJo9YMQWU0HApF/hf_20260614_160317_26f11891-8aef-4984-96fe-afdceafaeca9.mp4",
+      "poster": "https://d8j0ntlcm91z4.cloudfront.net/user_3EGOxTBmCmVIbqJo9YMQWU0HApF/hf_20260614_160311_c3876fa2-482b-4951-abdd-3e0abeee7d8a_min.webp",
+      "size": "c-4-45",
+      "grade": "g4"
+    }
+  ]
+}

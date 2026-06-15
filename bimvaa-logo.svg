@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 300" role="img" aria-label="BIMVAA STUDIO — Photography & Film">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400&amp;family=IBM+Plex+Mono:wght@500&amp;display=swap');
+    .wm{font-family:'Fraunces',Georgia,serif;font-weight:400;fill:#2A241C}
+    .sub{font-family:'IBM Plex Mono',monospace;font-weight:500;fill:#574E42}
+    .desc{font-family:'IBM Plex Mono',monospace;font-weight:500;fill:#938872}
+    .ink{stroke:#2A241C;fill:none}
+    .acc{fill:#855420}
+  </style>
+  <!-- aperture mark -->
+  <g transform="translate(130,24)">
+    <circle class="ink" cx="50" cy="50" r="46" stroke-width="1.6"/>
+    <circle class="ink" cx="50" cy="50" r="37" stroke-width="0.8"/>
+    <g class="ink" stroke-width="1.5" stroke-linecap="round">
+      <line x1="84" y1="50" x2="59.5" y2="57.4"/>
+      <line x1="67" y1="79.4" x2="48.3" y2="61.9"/>
+      <line x1="33" y1="79.4" x2="38.9" y2="54.5"/>
+      <line x1="16" y1="50" x2="40.5" y2="42.6"/>
+      <line x1="33" y1="20.6" x2="51.7" y2="38.1"/>
+      <line x1="67" y1="20.6" x2="61.1" y2="45.5"/>
+    </g>
+    <circle class="acc" cx="50" cy="50" r="4.6"/>
+  </g>
+  <!-- wordmark -->
+  <text class="wm" x="180" y="190" text-anchor="middle" font-size="46" letter-spacing="7">BIMVAA</text>
+  <!-- hairline rule with center dot -->
+  <line class="ink" x1="120" y1="206" x2="166" y2="206" stroke-width="0.9"/>
+  <line class="ink" x1="194" y1="206" x2="240" y2="206" stroke-width="0.9"/>
+  <circle class="acc" cx="180" cy="206" r="2"/>
+  <text class="sub" x="183" y="231" text-anchor="middle" font-size="15" letter-spacing="11">STUDIO</text>
+  <text class="desc" x="181.5" y="254" text-anchor="middle" font-size="9.5" letter-spacing="3.5">PHOTOGRAPHY · FILM · SYDNEY</text>
+</svg>
