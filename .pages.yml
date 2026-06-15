@@ -17,7 +17,7 @@ content:
         list: true
         fields:
           - { name: title, label: Title, type: string }
-          - { name: category, label: Category (Wedding, Portrait, Brand...), type: string }
+          - { name: category, label: "Category (Wedding, Portrait, Brand...)", type: string }
           - { name: meta, label: Caption / camera details, type: string }
           - { name: image, label: Image, type: image }
           - { name: imageLarge, label: Large image (optional - opens full-screen), type: image }
@@ -43,9 +43,9 @@ content:
         list: true
         fields:
           - { name: title, label: Title, type: string }
-          - { name: category, label: Category (Wedding, Brand, Reel...), type: string }
+          - { name: category, label: "Category (Wedding, Brand, Reel...)", type: string }
           - { name: meta, label: Caption, type: string }
-          - { name: duration, label: Duration (mm:ss), type: string }
+          - { name: duration, label: "Duration (mm:ss)", type: string }
           - { name: video, label: Video link (YouTube or Vimeo URL), type: string }
           - { name: poster, label: Poster image, type: image }
           - name: size
