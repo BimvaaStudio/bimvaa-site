@@ -1,0 +1,67 @@
+# Pages CMS configuration for BIMVAA STUDIO
+# Edit your site at https://app.pagescms.org (sign in with GitHub)
+
+media:
+  input: media
+  output: /media
+
+content:
+  - name: portfolio
+    label: Portfolio (photos)
+    path: content/portfolio.json
+    type: file
+    fields:
+      - name: items
+        label: Photos
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: category, label: Category (Wedding, Portrait, Brand...), type: string }
+          - { name: meta, label: Caption / camera details, type: string }
+          - { name: image, label: Image, type: image }
+          - { name: imageLarge, label: Large image (optional - opens full-screen), type: image }
+          - name: size
+            label: Tile size
+            type: select
+            options:
+              values:
+                - { value: c-12,   label: Full width (hero) }
+                - { value: c-7-32, label: Wide }
+                - { value: c-6-32, label: Half width }
+                - { value: c-5-45, label: Tall }
+                - { value: c-4-45, label: Standard }
+                - { value: c-4-1,  label: Square }
+  - name: films
+    label: Films
+    path: content/films.json
+    type: file
+    fields:
+      - name: items
+        label: Films
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: category, label: Category (Wedding, Brand, Reel...), type: string }
+          - { name: meta, label: Caption, type: string }
+          - { name: duration, label: Duration (mm:ss), type: string }
+          - { name: video, label: Video link (YouTube or Vimeo URL), type: string }
+          - { name: poster, label: Poster image, type: image }
+          - name: size
+            label: Tile size
+            type: select
+            options:
+              values:
+                - { value: c-12,   label: Full width (hero) }
+                - { value: c-6-32, label: Half width }
+                - { value: c-4-45, label: Standard }
+  - name: site
+    label: Site & Contact
+    path: content/site.json
+    type: file
+    fields:
+      - { name: email, label: Contact email, type: string }
+      - { name: phone, label: Phone (optional), type: string }
+      - { name: instagram, label: Instagram URL, type: string }
+      - { name: location, label: Location, type: string }
