@@ -566,7 +566,55 @@ ul{list-style:none}
       </button>
     </div>
   </div>
+  <a class="scroll-cue" href="#studio" aria-label="More about the studio" data-cursor>↓</a>
 </main>
+
+<!-- ============ STUDIO INTRO (crawlable content) ============ -->
+<style>
+.scroll-cue{position:absolute;left:50%;bottom:1.5rem;transform:translateX(-50%);color:var(--faint);font-size:1.15rem;line-height:1;opacity:.55;text-decoration:none;animation:bob 2.2s ease-in-out infinite}
+.scroll-cue:hover{color:var(--tung);opacity:1}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,7px)}}
+.studio{position:relative;z-index:5;background:var(--stage-2);border-top:1px solid var(--line);padding:clamp(3.5rem,8vw,6rem) var(--gutter)}
+.studio-in{max-width:var(--maxw);margin:0 auto}
+.studio .kick{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--tung);margin:0}
+.studio h2{font-family:var(--font-display);font-weight:300;font-size:clamp(1.8rem,4.6vw,3rem);line-height:1.08;margin:.55rem 0 1.1rem;max-width:20ch}
+.studio h2 em{font-style:italic;color:var(--tung)}
+.studio .lead{max-width:62ch;color:var(--smoke);font-size:1.05rem;margin:0 0 2.4rem}
+.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1.6rem;border-top:1px solid var(--line);padding-top:2.2rem}
+.svc h3{font-family:var(--font-display);font-weight:400;font-size:1.15rem;margin:0 0 .25rem}
+.svc p{color:var(--faint);font-size:.92rem;margin:0}
+.studio-cta{margin-top:2.6rem;display:flex;flex-wrap:wrap;gap:.9rem}
+.studio-meta{margin-top:2.2rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.studio-meta a{color:var(--tung)}
+.foot{background:var(--light);color:var(--onmedia);padding:2.2rem var(--gutter);font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em}
+.foot-in{max-width:var(--maxw);margin:0 auto;display:flex;flex-wrap:wrap;gap:.8rem 1.4rem;justify-content:space-between;align-items:center}
+.foot a{color:var(--onmedia)}.foot a:hover{color:var(--tung-2)}
+@media(prefers-reduced-motion:reduce){.scroll-cue{animation:none}}
+</style>
+<section class="studio" id="studio" aria-label="About BIMVAA STUDIO">
+  <div class="studio-in">
+    <p class="kick">The studio</p>
+    <h2>Sydney photography &amp; film — <em>one eye, two crafts.</em></h2>
+    <p class="lead">BIMVAA STUDIO is a Sydney photography and film studio led by Bishal Singh. I shoot moody, cinematic stills and film as a single craft — so your photographs and your video share one consistent look, with coordinated coverage and no separate crews to manage. Weddings, portraits, brands and editorial, across Sydney by appointment.</p>
+    <div class="svc">
+      <div><h3>Weddings</h3><p>Full-day photo and film coverage, from quiet morning prep to the last dance.</p></div>
+      <div><h3>Portraits</h3><p>Editorial, couple and personal sessions with a cinematic, natural feel.</p></div>
+      <div><h3>Brand &amp; commercial</h3><p>Stills and short films that give brands one consistent, filmic look.</p></div>
+      <div><h3>Editorial</h3><p>Story-led shoots for publications, lookbooks and campaigns.</p></div>
+    </div>
+    <div class="studio-cta">
+      <a href="book.html" class="btn btn-solid" data-cursor>Start an enquiry</a>
+      <a href="about.html" class="btn btn-ghost" data-cursor>About the studio</a>
+      <a href="journal/index.html" class="btn btn-ghost" data-cursor>Read the journal</a>
+    </div>
+    <p class="studio-meta">Based in Denistone East · serving all of Sydney by appointment · <a href="mailto:info@bimvaa.com">info@bimvaa.com</a></p>
+  </div>
+</section>
+<footer class="foot"><div class="foot-in">
+  <span>© <span id="yr"></span> BIMVAA STUDIO · Photography &amp; Film · Sydney</span>
+  <span><a href="about.html">About</a> · <a href="journal/index.html">Journal</a> · <a href="book.html">Enquire</a></span>
+</div></footer>
+<script>(function(){var y=document.getElementById('yr');if(y)y.textContent=new Date().getFullYear();})();</script>
 
 <!-- ============ CAPTURE FX ============ -->
 <div class="fx" id="captureFx" aria-hidden="true">
