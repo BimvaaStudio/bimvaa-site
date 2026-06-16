@@ -263,9 +263,9 @@ ul{list-style:none}
 @keyframes irisClose{from{transform:rotate(0) scale(1.9)}to{transform:rotate(44deg) scale(0)}}
 @keyframes irisOpen{from{transform:rotate(44deg) scale(0)}to{transform:rotate(0) scale(1.9)}}
 .dev.zoom{animation:none!important;transform:scale(2.7) translateY(-3%);opacity:0;transition:transform .55s var(--snap),opacity .5s ease}
-.flash{position:absolute;inset:0;z-index:5;background:#fff;opacity:0}
-.fx.flashing .flash{animation:flash .22s ease forwards}
-@keyframes flash{0%{opacity:0}25%{opacity:.95}100%{opacity:0}}
+.flash{position:absolute;inset:0;z-index:6;background:#fff;opacity:0}
+.fx.flashing .flash{animation:flash .5s ease-out forwards}
+@keyframes flash{0%{opacity:0}9%{opacity:1}40%{opacity:.45}100%{opacity:0}}
 
 /* =================================================================
    RECORD SEQUENCE
@@ -589,25 +589,39 @@ ul{list-style:none}
 .foot{background:var(--light);color:var(--onmedia);padding:2.2rem var(--gutter);font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em}
 .foot-in{max-width:var(--maxw);margin:0 auto;display:flex;flex-wrap:wrap;gap:.8rem 1.4rem;justify-content:space-between;align-items:center}
 .foot a{color:var(--onmedia)}.foot a:hover{color:var(--tung-2)}
-@media(prefers-reduced-motion:reduce){.scroll-cue{animation:none}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.proc{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.4rem;border-top:1px solid var(--line);margin-top:2.8rem;padding-top:2.2rem;counter-reset:step}
+.proc div{position:relative;padding-left:2.5rem}
+.proc div::before{counter-increment:step;content:"0" counter(step);position:absolute;left:0;top:.1rem;font-family:var(--font-mono);font-size:.72rem;color:var(--tung);letter-spacing:.05em}
+.proc h4{font-family:var(--font-display);font-weight:400;font-size:1.02rem;margin:0 0 .2rem}
+.proc p{color:var(--faint);font-size:.86rem;margin:0;line-height:1.5}
+@media(prefers-reduced-motion:reduce){.scroll-cue{animation:none}.reveal{opacity:1!important;transform:none!important;transition:none}}
 </style>
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 <section class="studio" id="studio" aria-label="About BIMVAA STUDIO">
   <div class="studio-in">
-    <p class="kick">The studio</p>
-    <h2>Sydney photography &amp; film — <em>one eye, two crafts.</em></h2>
-    <p class="lead">BIMVAA STUDIO is a Sydney photography and film studio led by Bishal Singh. I shoot moody, cinematic stills and film as a single craft — so your photographs and your video share one consistent look, with coordinated coverage and no separate crews to manage. Weddings, portraits, brands and editorial, across Sydney by appointment.</p>
-    <div class="svc">
+    <p class="kick reveal">The studio</p>
+    <h2 class="reveal">Sydney photography &amp; film — <em>one eye, two crafts.</em></h2>
+    <p class="lead reveal">BIMVAA STUDIO is a Sydney photography and film studio led by Bishal Singh. I shoot moody, cinematic stills and film as a single craft — so your photographs and your video share one consistent look, with coordinated coverage and no separate crews to manage. Weddings, portraits, brands and editorial, across Sydney by appointment.</p>
+    <div class="svc reveal">
       <div><h3>Weddings</h3><p>Full-day photo and film coverage, from quiet morning prep to the last dance.</p></div>
       <div><h3>Portraits</h3><p>Editorial, couple and personal sessions with a cinematic, natural feel.</p></div>
       <div><h3>Brand &amp; commercial</h3><p>Stills and short films that give brands one consistent, filmic look.</p></div>
       <div><h3>Editorial</h3><p>Story-led shoots for publications, lookbooks and campaigns.</p></div>
     </div>
-    <div class="studio-cta">
+    <div class="proc reveal" aria-label="How it works">
+      <div><h4>Enquire</h4><p>Send your date, location and what you have in mind.</p></div>
+      <div><h4>Plan</h4><p>We shape the coverage — photo, film, or both — around your day.</p></div>
+      <div><h4>The shoot</h4><p>One calm presence capturing stills and motion together.</p></div>
+      <div><h4>Your gallery</h4><p>A cohesive set of edited images and film, delivered online.</p></div>
+    </div>
+    <div class="studio-cta reveal">
       <a href="book.html" class="btn btn-solid" data-cursor>Start an enquiry</a>
       <a href="about.html" class="btn btn-ghost" data-cursor>About the studio</a>
       <a href="journal/index.html" class="btn btn-ghost" data-cursor>Read the journal</a>
     </div>
-    <p class="studio-meta">Based in Denistone East · serving all of Sydney by appointment · <a href="mailto:info@bimvaa.com">info@bimvaa.com</a></p>
+    <p class="studio-meta reveal">Based in Denistone East · serving all of Sydney by appointment · <a href="mailto:info@bimvaa.com">info@bimvaa.com</a></p>
   </div>
 </section>
 <footer class="foot"><div class="foot-in">
@@ -615,6 +629,12 @@ ul{list-style:none}
   <span><a href="about.html">About</a> · <a href="journal/index.html">Journal</a> · <a href="book.html">Enquire</a></span>
 </div></footer>
 <script>(function(){var y=document.getElementById('yr');if(y)y.textContent=new Date().getFullYear();})();</script>
+<script>(function(){
+  var els=[].slice.call(document.querySelectorAll('.reveal')); if(!els.length)return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)){ els.forEach(function(e){e.classList.add('in');}); return; }
+  var io=new IntersectionObserver(function(ents){ ents.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } }); }, {threshold:.12, rootMargin:'0px 0px -7% 0px'});
+  els.forEach(function(e,i){ e.style.transitionDelay=(Math.min(i,6)*70)+'ms'; io.observe(e); });
+})();</script>
 
 <!-- ============ CAPTURE FX ============ -->
 <div class="fx" id="captureFx" aria-hidden="true">
@@ -841,9 +861,9 @@ ul{list-style:none}
     var dev=$('#stillsGear .dev'); dev.classList.add('zoom');
     captureFx.classList.add('on','framing'); beep(1180,.05);
     setTimeout(function(){ shutter(); captureFx.classList.remove('framing'); captureFx.classList.add('snap'); },720);
-    setTimeout(function(){ captureFx.classList.add('flashing'); openGallery(photoGallery); },990);
-    setTimeout(function(){ captureFx.classList.add('open'); },1140);
-    setTimeout(function(){ captureFx.className='fx'; dev.classList.remove('zoom'); busy=false; },1720);
+    setTimeout(function(){ captureFx.classList.add('flashing'); },900);
+    setTimeout(function(){ openGallery(photoGallery); captureFx.classList.add('open'); },1200);
+    setTimeout(function(){ captureFx.className='fx'; dev.classList.remove('zoom'); busy=false; },1950);
   }
   /* ---------- RECORD sequence ---------- */
   function doRecord(){ if(busy) return; busy=true; lastGear=$('#filmGear');
