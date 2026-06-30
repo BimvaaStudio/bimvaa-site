@@ -441,9 +441,8 @@ ul{list-style:none}
   .c-4-45,.c-4-1{grid-column:span 3}.c-6-32{grid-column:span 6}.c-12{grid-column:span 6;aspect-ratio:16/9}
 }
 @media (max-width:620px){
-  .gal-grid{grid-template-columns:repeat(2,1fr);gap:.6rem}
-  .gal-grid>*{grid-column:span 2!important;aspect-ratio:4/5!important}
-  .c-12{aspect-ratio:16/9!important}
+  .gal-grid{grid-template-columns:1fr;gap:.8rem}
+  .gal-grid>*{grid-column:1 / -1!important}
   .choices{grid-template-columns:1fr}.two{grid-template-columns:1fr}
   .gear-row{gap:2.2rem}
   .gear .dev{width:clamp(160px,46vw,230px)}
