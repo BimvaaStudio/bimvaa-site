@@ -334,6 +334,15 @@ ul{list-style:none}
 .gal-cta{text-align:center;margin-top:4rem}
 .gal-cta p{font-family:var(--font-display);font-style:italic;font-size:clamp(1.4rem,3vw,2rem);color:var(--light);margin-bottom:1.4rem}
 
+/* category filter tabs */
+.gal-filters{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1.6rem}
+.gal-filters .fbtn{font-family:var(--font-mono);font-weight:500;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--smoke);
+  border:1px solid var(--line);border-radius:999px;padding:.5rem .95rem;min-height:36px;
+  transition:color .25s var(--ease),background .25s var(--ease),border-color .25s var(--ease)}
+.gal-filters .fbtn:hover,.gal-filters .fbtn:focus-visible{color:var(--light);border-color:var(--smoke)}
+.gal-filters .fbtn.active{background:var(--tung);color:var(--onmedia);border-color:var(--tung)}
+.cell.hide{display:none!important}
+
 /* moody graded frames */
 .g1{background:radial-gradient(60% 60% at 65% 28%,rgba(231,170,96,.45),transparent 60%),linear-gradient(150deg,#3a2a14,#140d07 72%)}
 .g2{background:radial-gradient(55% 55% at 32% 32%,rgba(120,150,170,.34),transparent 60%),linear-gradient(160deg,#16252c,#0a0f12 76%)}
@@ -673,6 +682,7 @@ ul{list-style:none}
     </div>
   </div>
   <div class="gal-body">
+    <div class="gal-filters" id="photoFilters" role="tablist" aria-label="Filter photos by category"></div>
     <div class="gal-grid" id="photoGrid"></div>
     <div class="gal-cta">
       <p>Like what you see?</p>
@@ -894,6 +904,7 @@ ul{list-style:none}
     b.setAttribute('data-type','photo');
     b.setAttribute('data-title',it.title||'');
     b.setAttribute('data-meta',it.meta||'');
+    b.setAttribute('data-category',it.category||'');
     b.setAttribute('aria-label',(it.category?it.category+' — ':'')+(it.title||'Photograph'));
     var lg=it.imageLarge||it.image||''; if(lg)b.setAttribute('data-img',normSrc(lg));
     var fr=document.createElement('span'); fr.className='fr '+(it.grade||'g1');
@@ -938,7 +949,31 @@ ul{list-style:none}
   }); }); }
   function loadJSON(u){ return fetch(u,{cache:'no-cache'}).then(function(r){ if(!r.ok)throw 0; return r.json(); }); }
   function revealIfOpen(g){ if(galOpen===g){ $$('.cell',g).forEach(function(c){ c.classList.add('in'); }); } }
-  loadJSON('/content/portfolio.json').then(function(d){ renderGrid($('#photoGrid'),d.items,buildPhotoCell); bindCells(photoGallery); revealIfOpen(photoGallery); }).catch(function(){});
+  function buildFilters(container,grid,items){
+    if(!container)return;
+    var order=['Food','Festival','Wedding','Portrait','Brand','Editorial'];
+    var present=[]; (items||[]).forEach(function(it){ var c=(it.category||'').trim(); if(c&&present.indexOf(c)<0)present.push(c); });
+    present.sort(function(a,b){ var ia=order.indexOf(a),ib=order.indexOf(b); if(ia<0)ia=99; if(ib<0)ib=99; return ia-ib||a.localeCompare(b); });
+    if(present.length<2){ container.style.display='none'; container.innerHTML=''; return; }
+    container.style.display=''; container.innerHTML='';
+    ['All'].concat(present).forEach(function(cat,idx){
+      var btn=document.createElement('button');
+      btn.className='fbtn'+(idx===0?' active':''); btn.type='button';
+      btn.setAttribute('role','tab'); btn.setAttribute('aria-selected',idx===0?'true':'false');
+      btn.setAttribute('data-cat',cat); btn.textContent=cat;
+      btn.addEventListener('click',function(){ filterGrid(container,grid,cat,btn); });
+      container.appendChild(btn);
+    });
+  }
+  function filterGrid(container,grid,cat,btn){
+    $$('.fbtn',container).forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+    btn.classList.add('active'); btn.setAttribute('aria-selected','true');
+    $$('.cell',grid).forEach(function(c){
+      var match=(cat==='All')||(c.getAttribute('data-category')===cat);
+      c.classList.toggle('hide',!match); if(match)c.classList.add('in');
+    });
+  }
+  loadJSON('/content/portfolio.json').then(function(d){ renderGrid($('#photoGrid'),d.items,buildPhotoCell); buildFilters($('#photoFilters'),$('#photoGrid'),d.items); bindCells(photoGallery); revealIfOpen(photoGallery); }).catch(function(){});
   loadJSON('/content/films.json').then(function(d){ renderGrid($('#filmGrid'),d.items,buildFilmCell); bindCells(filmGallery); revealIfOpen(filmGallery); }).catch(function(){});
   loadJSON('/content/site.json').then(function(s){
     if(s.email){var e=$('#siteEmail'); if(e){e.textContent=s.email; e.href='mailto:'+s.email;}}
