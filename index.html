@@ -951,7 +951,7 @@ ul{list-style:none}
   function revealIfOpen(g){ if(galOpen===g){ $$('.cell',g).forEach(function(c){ c.classList.add('in'); }); } }
   function buildFilters(container,grid,items){
     if(!container)return;
-    var order=['Food','Festival','Wedding','Portrait','Brand','Editorial'];
+    var order=['Food','Winter Magic','Wedding','Portrait','Brand','Editorial'];
     var present=[]; (items||[]).forEach(function(it){ var c=(it.category||'').trim(); if(c&&present.indexOf(c)<0)present.push(c); });
     present.sort(function(a,b){ var ia=order.indexOf(a),ib=order.indexOf(b); if(ia<0)ia=99; if(ib<0)ib=99; return ia-ib||a.localeCompare(b); });
     if(present.length<2){ container.style.display='none'; container.innerHTML=''; return; }
