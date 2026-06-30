@@ -366,8 +366,8 @@ ul{list-style:none}
   font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--onmedia);transition:color .25s}
 .modal .close:hover{color:#E7B36B}
 .modal .close .x{width:22px;height:22px;border:1px solid rgba(236,230,217,.4);border-radius:50%;display:grid;place-items:center}
-.lb-stage{aspect-ratio:3/2;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
-.lb-stage .lb-img{width:100%;height:100%;background-size:cover;background-position:center}
+.lb-stage{display:flex;align-items:center;justify-content:center}
+.lb-stage .lb-img{display:block;max-width:100%;max-height:82vh;width:auto;height:auto;border-radius:var(--radius);border:1px solid var(--line)}
 .lb-cap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:1rem}
 .lb-cap .t{font-family:var(--font-display);font-size:1.3rem;color:var(--onmedia)}
 .lb-cap .m{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(231,179,107,.92)}
@@ -714,7 +714,7 @@ ul{list-style:none}
   <div class="ov" data-close></div>
   <div class="box">
     <button class="close" data-close aria-label="Close">Close <span class="x" aria-hidden="true">✕</span></button>
-    <div class="lb-stage"><div class="lb-img" id="lbImg"></div></div>
+    <div class="lb-stage"><img class="lb-img" id="lbImg" alt=""></div>
     <div class="lb-cap"><span class="t" id="lbTitle">Title</span><span class="m" id="lbMeta">Meta</span></div>
   </div>
 </div>
@@ -944,7 +944,7 @@ ul{list-style:none}
   }
   function openVideo(label,url){ plTitle.textContent=label; var ps=$('.player-stage'); if(ps)ps.innerHTML=videoMarkup(url); openModal(player); }
   function bindCells(g){ $$('.cell',g).forEach(function(c){ c.addEventListener('click',function(){
-    if(c.getAttribute('data-type')==='photo'){ var u=c.getAttribute('data-img'); lbImg.className='lb-img'; lbImg.style.backgroundImage=u?"url('"+u+"')":''; lbTitle.textContent=c.getAttribute('data-title'); lbMeta.textContent=c.getAttribute('data-meta'); openModal(lightbox); }
+    if(c.getAttribute('data-type')==='photo'){ var u=c.getAttribute('data-img'); lbImg.src=u||''; lbImg.alt=c.getAttribute('data-title')||''; lbTitle.textContent=c.getAttribute('data-title'); lbMeta.textContent=c.getAttribute('data-meta'); openModal(lightbox); }
     else { openVideo(c.getAttribute('data-title')+' · '+c.getAttribute('data-meta'), c.getAttribute('data-video')); }
   }); }); }
   function loadJSON(u){ return fetch(u,{cache:'no-cache'}).then(function(r){ if(!r.ok)throw 0; return r.json(); }); }
